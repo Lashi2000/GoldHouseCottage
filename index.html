@@ -7,8 +7,11 @@
   <link rel="stylesheet" href="assets/styles.css">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #005f73; color: white; padding: 20px; text-align: center; }
-    nav { background: #0a9396; display: flex; justify-content: center; flex-wrap: wrap; }
+    header { position: relative; text-align: center; color: white; }
+    header img { width:100%; height:auto; border-radius:8px; display:block; }
+    header h1 { position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); font-size: 3em; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 8px; }
+    header p { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 8px; font-size: 1.2em; }
+    nav { background: #0a9396; display: flex; justify-content: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 1000; }
     nav a { color: white; padding: 14px 20px; text-decoration: none; display: block; }
     nav a:hover { background: #94d2bd; color: black; }
     .tab-content { display: none; padding: 20px; max-width: 1000px; margin: auto; }
@@ -44,7 +47,7 @@
 <body>
 
   <header>
-    <img src="images/backyard1.jpg" alt="Villa Backyard" style="width:100%; height:auto; border-radius:8px;">
+    <img src="images/backyard1.jpg" alt="Villa Backyard">
     <h1>Lakeside Villa in Port Colborne</h1>
     <p>15 guests • 5 bedrooms • 3.5 bathrooms • Waterfront on Lake Erie</p>
   </header>
@@ -77,6 +80,7 @@
 
   <div id="amenities" class="tab-content">
     <h2>Amenities & Activities</h2>
+    <h3>Amenities</h3>
     <ul>
       <li>Sleeps 15</li>
       <li>5 Bedrooms: 4 single beds, 5 double beds, 1 queen bed</li>
@@ -95,6 +99,9 @@
     <ul>
       <li><a href="https://www.whiskyrungolfclub.com/" target="_blank">Whisky Run Golf Club</a> – just across the road, enjoy 27 holes of scenic golfing.</li>
       <li><a href="https://maplemeadowsfarm.ca/" target="_blank">Maple Meadows Farm</a> – a nearby event and activity venue.</li>
+      <li><a href="https://www.humberstoneranch.com/" target="_blank">Horse Riding at Humberstone Ranch</a> – guided horseback riding adventures.</li>
+      <li><a href="https://www.saddlebrookniagara.com/" target="_blank">Pony Rides for Kids at Saddle Brook Farm</a> – fun activities for children.</li>
+      <li><a href="https://ridgewaylavender.com/" target="_blank">Ridgeway Lavender</a> – relax and enjoy the lavender fields and products.</li>
       <li>Niagara Falls is only 30 minutes away, giving you quick access to world-famous attractions.</li>
       <li><a href="https://www.niagarafallstourism.com/" target="_blank">Discover Niagara Area Activities</a> – explore wineries, trails, boat tours, casinos, and entertainment.</li>
     </ul>
