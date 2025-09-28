@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakeside Villa in Port Colborne</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #005f73; color: white; padding: 20px; text-align: center; }
+    nav { background: #0a9396; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav a { color: white; padding: 14px 20px; text-decoration: none; display: block; }
+    nav a:hover { background: #94d2bd; color: black; }
+    .tab-content { display: none; padding: 20px; max-width: 1000px; margin: auto; }
+    .active { display: block; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 10px; padding: 20px; }
+    .gallery img { width: 100%; height: auto; border-radius: 8px; }
+    h2 { color: #0a9396; }
+    ul { list-style-type: none; padding: 0; }
+    ul li { margin-bottom: 6px; }
+    footer { background: #005f73; color: white; text-align: center; padding: 20px; margin-top: 20px; }
+  </style>
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.background = "#0a9396";
+        tablinks[i].style.color = "white";
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.style.background = "#94d2bd";
+      evt.currentTarget.style.color = "black";
+    }
+    window.onload = function(){
+      document.getElementsByClassName("tablink")[0].click();
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <img src="images/backyard1.jpg" alt="Villa Backyard" style="width:100%; height:auto; border-radius:8px;">
+    <h1>Lakeside Villa in Port Colborne</h1>
+    <p>15 guests • 5 bedrooms • 3.5 bathrooms • Waterfront on Lake Erie</p>
+  </header>
+
+  <nav>
+    <a href="#" class="tablink" onclick="openTab(event, 'about')">About</a>
+    <a href="#" class="tablink" onclick="openTab(event, 'amenities')">Amenities & Activities</a>
+    <a href="#" class="tablink" onclick="openTab(event, 'rates')">Rates</a>
+    <a href="#" class="tablink" onclick="openTab(event, 'gallery')">Gallery</a>
+    <a href="#" class="tablink" onclick="openTab(event, 'contact')">Contact</a>
+  </nav>
+
+  <div id="about" class="tab-content">
+    <h2>About</h2>
+    <p>
+      This beautiful lakeside villa in Port Colborne, located within 30 minutes from Niagara Falls, Ontario, is the perfect retreat for families, couples, or small groups to relax and enjoy your own private beach with panoramic views of Lake Erie and stunning sunsets.
+      The 5-bedroom, 3.5-bathroom villa features a spacious layout, cozy furnishings, and a full kitchen—excellent for fishing and swimming in very clean water.
+    </p>
+    <p>
+      View more details on our listing at <a href="https://app.cottagesincanada.com/owner/listing-overview.aspx?ida=25671" target="_blank">Cottages in Canada</a>.
+    </p>
+    <div class="gallery">
+      <img src="images/backyard2.jpg" alt="Backyard View">
+      <img src="images/front.jpg" alt="Front of the House">
+    </div>
+    <h3>Location</h3>
+    <p>935 Lakeshore Road East, Port Colborne, Ontario</p>
+    <iframe src="https://www.google.com/maps?q=935+Lakeshore+Road+East,+Port+Colborne,+Ontario&output=embed" width="100%" height="400" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+
+  <div id="amenities" class="tab-content">
+    <h2>Amenities & Activities</h2>
+    <ul>
+      <li>Sleeps 15</li>
+      <li>5 Bedrooms: 4 single beds, 5 double beds, 1 queen bed</li>
+      <li>3.5 Bathrooms</li>
+      <li>Pets not allowed, smoking not allowed</li>
+      <li>Fireplace, Wi-Fi, Internet</li>
+      <li>Full kitchen: dishwasher, microwave, coffee maker, cutlery, stove, oven, refrigerator etc.</li>
+      <li>Entertainment: billiards room, ping-pong, foosball, dart board, board games, Blu-ray/DVD, TV, stereo</li>
+      <li>Outdoor: private beach, gazebo, BBQ, fire pit, life jackets, beachfront tennis court, in-ground pool</li>
+    </ul>
+    <h3>Nearby Activities</h3>
+    <p>
+      Located across from Whiskey Run Golf Club. Nearby activities include archery, badminton, bicycle paths, canoeing, casino, fishing, golf, hiking, kayaking, motorboating, pedal-boating, rafting, rollerblading, scuba diving, sea-doeing, tennis, theatre, water skiing, water sliding, and ice skating during winter.
+    </p>
+    <h3>Area Activities</h3>
+    <ul>
+      <li><a href="https://www.whiskyrungolfclub.com/" target="_blank">Whisky Run Golf Club</a> – just across the road, enjoy 27 holes of scenic golfing.</li>
+      <li><a href="https://maplemeadowsfarm.ca/" target="_blank">Maple Meadows Farm</a> – a nearby event and activity venue.</li>
+      <li>Niagara Falls is only 30 minutes away, giving you quick access to world-famous attractions.</li>
+      <li><a href="https://www.niagarafallstourism.com/" target="_blank">Discover Niagara Area Activities</a> – explore wineries, trails, boat tours, casinos, and entertainment.</li>
+    </ul>
+    <div class="gallery">
+      <img src="images/backyard2.jpg" alt="Backyard View">
+      <img src="images/front.jpg" alt="Front of the House">
+    </div>
+  </div>
+
+  <div id="rates" class="tab-content">
+    <h2>Rates</h2>
+    <p>
+      - $1,200–$1,750 per night<br>
+      - $8,400 per week<br>
+      - $20,000 per month<br>
+      Contact owner for more details.
+    </p>
+    <div class="gallery">
+      <img src="images/backyard2.jpg" alt="Backyard View">
+      <img src="images/front.jpg" alt="Front of the House">
+    </div>
+  </div>
+
+  <div id="gallery" class="tab-content">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/backyard1.jpg" alt="Villa Backyard">
+      <img src="images/backyard2.jpg" alt="Backyard View">
+      <img src="images/front.jpg" alt="Front of the House">
+      <img src="images/dinning.jpg" alt="Dining Room">
+      <img src="images/porch.jpg" alt="Porch Area">
+      <img src="images/kitchen1.jpg" alt="Kitchen">
+      <img src="images/kitchen3.jpg" alt="Kitchen Angle">
+      <img src="images/livingroom1.jpg" alt="Living Room">
+      <img src="images/MasterbedA.jpg" alt="Master Bedroom A">
+      <img src="images/MasterbedB.jpg" alt="Master Bedroom B">
+      <img src="images/Bathroom1A.jpg" alt="Master Bathroom">
+      <img src="images/Bedroom2B.jpg" alt="Bedroom 2">
+      <img src="images/Bedroom3A.jpg" alt="Bedroom 3">
+      <img src="images/Bedroom4.jpg" alt="Bedroom 4">
+      <img src="images/Bedroom5.jpg" alt="Bedroom 5">
+    </div>
+  </div>
+
+  <div id="contact" class="tab-content">
+    <h2>Contact & Reservations</h2>
+    <p>
+      For reservations please call:<br>
+      <strong>647-712-8020</strong>
+    </p>
+    <div class="gallery">
+      <img src="images/backyard2.jpg" alt="Backyard View">
+      <img src="images/front.jpg" alt="Front of the House">
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Lakeside Villa in Port Colborne</p>
+  </footer>
+
+</body>
+</html>
