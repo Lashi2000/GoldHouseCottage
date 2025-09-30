@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lakeside Villa in Port Colborne</title>
   <link rel="stylesheet" href="assets/styles.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; font-size: 16px; }
     header { position: relative; text-align: center; color: white; }
     header img { width:100%; height:auto; display:block; }
-    header h1 { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 6vw; background: rgba(0,0,0,0.5); padding: 2vw 4vw; border-radius: 8px; }
-    header p { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); padding: 1vw 2vw; border-radius: 8px; font-size: 3.5vw; max-width: 90%; }
-    nav { background: #0a9396; display: flex; justify-content: space-around; flex-wrap: wrap; position: fixed; top: 0; width: 100%; z-index: 1000; }
-    nav a { flex: 1; text-align: center; color: white; padding: 12px; text-decoration: none; font-size: 4vw; }
+    header h1 { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 8px; }
+    header p { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); padding: 6px 12px; border-radius: 8px; font-size: 1em; max-width: 90%; }
+    nav { background: #0a9396; display: flex; justify-content: space-around; white-space: nowrap; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    nav a { flex: 1; text-align: center; color: white; padding: 12px; text-decoration: none; font-size: 1em; overflow: hidden; text-overflow: ellipsis; }
     nav a:hover { background: #94d2bd; color: black; }
     body { padding-top: 60px; }
-    .tab-content { display: none; padding: 16px; max-width: 1000px; margin: auto; }
+    .tab-content { display: none; padding: 20px; max-width: 1000px; margin: auto; }
     .active { display: block; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px; padding: 10px; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 10px; padding: 10px; }
     .gallery img { width: 100%; height: auto; border-radius: 8px; cursor: pointer; }
-    h2 { color: #0a9396; font-size: 6vw; }
-    h3 { margin-top: 20px; color: #005f73; font-size: 5vw; }
-    ul { list-style-type: none; padding: 0; font-size: 4vw; }
+    h2 { color: #0a9396; font-size: 1.8em; }
+    h3 { margin-top: 20px; color: #005f73; font-size: 1.4em; }
+    ul { list-style-type: none; padding: 0; font-size: 1em; }
     ul li { margin-bottom: 6px; }
-    p, a { font-size: 4vw; }
+    p, a { font-size: 1em; }
     iframe { width: 100%; height: 300px; border:0; border-radius:8px; }
-    footer { background: #005f73; color: white; text-align: center; padding: 20px; margin-top: 20px; position: relative; font-size: 3.5vw; }
-    footer .maintained { position: absolute; right: 10px; bottom: 10px; font-size: 3vw; }
+    footer { background: #005f73; color: white; text-align: center; padding: 20px; margin-top: 20px; position: relative; font-size: 0.9em; }
+    footer .maintained { position: absolute; right: 10px; bottom: 10px; font-size: 0.8em; }
 
     /* Lightbox */
     .lightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
@@ -34,7 +34,7 @@
     .lightbox .close, .lightbox .prev, .lightbox .next {
       position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2em; cursor: pointer; padding: 10px;
     }
-    .lightbox .close { top: 20px; right: 30px; transform: none; font-size: 3em; }
+    .lightbox .close { top: 20px; right: 30px; transform: none; font-size: 2.5em; }
     .lightbox .prev { left: 20px; }
     .lightbox .next { right: 20px; }
   </style>
@@ -126,7 +126,7 @@
 
   <nav>
     <a href="#" class="tablink" onclick="openTab(event, 'about')">About</a>
-    <a href="#" class="tablink" onclick="openTab(event, 'amenities')">Amenities & Activities</a>
+    <a href="#" class="tablink" style="white-space: nowrap;" onclick="openTab(event, 'amenities')">Amenities & Activities</a>
     <a href="#" class="tablink" onclick="openTab(event, 'rates')">Rates</a>
     <a href="#" class="tablink" onclick="openTab(event, 'gallery')">Gallery</a>
     <a href="#" class="tablink" onclick="openTab(event, 'contact')">Contact</a>
@@ -139,7 +139,7 @@
       The 5-bedroom, 3.5-bathroom villa features a spacious layout, cozy furnishings, and a full kitchen—excellent for fishing and swimming in very clean water.
     </p>
     <p>
-      View more details on our listing at <a href="https://app.cottagesincanada.com/owner/listing-overview.aspx?ida=25671" target="_blank">Cottages in Canada</a>.
+      View more details on our listing at <a href="https://www.cottagesincanada.com/25671" target="_blank">Cottages in Canada</a>.
     </p>
     <div class="gallery">
       <img src="images/backyard2.jpg" alt="Backyard View">
@@ -194,6 +194,9 @@
       - $20,000 per month<br>
       Contact owner for more details.
     </p>
+    <p>
+      Make a Reservation: <a href="https://www.cottagesincanada.com/25671" target="_blank">Click here</a>
+    </p>
     <div class="gallery">
       <img src="images/backyard2.jpg" alt="Backyard View">
       <img src="images/front.jpg" alt="Front of the House">
@@ -245,7 +248,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2025 Lakeside Villa in Port Colborne</p>
+    <p>&copy; 2025 GoldHouseCottage Rentals</p>
     <div class="maintained">Maintained by <a href="https://mytekspace.com" target="_blank" style="color:white;">myTekSpace.com</a></div>
   </footer>
 
