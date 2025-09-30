@@ -2,26 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Lakeside Villa in Port Colborne</title>
   <link rel="stylesheet" href="assets/styles.css">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     header { position: relative; text-align: center; color: white; }
-    header img { width:100%; height:auto; border-radius:8px; display:block; }
-    header h1 { position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); font-size: 3em; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 8px; }
-    header p { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 8px; font-size: 1.2em; }
-    nav { background: #0a9396; display: flex; justify-content: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 1000; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; display: block; }
+    header img { width:100%; height:auto; display:block; }
+    header h1 { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 6vw; background: rgba(0,0,0,0.5); padding: 2vw 4vw; border-radius: 8px; }
+    header p { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); padding: 1vw 2vw; border-radius: 8px; font-size: 3.5vw; max-width: 90%; }
+    nav { background: #0a9396; display: flex; justify-content: space-around; flex-wrap: wrap; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    nav a { flex: 1; text-align: center; color: white; padding: 12px; text-decoration: none; font-size: 4vw; }
     nav a:hover { background: #94d2bd; color: black; }
-    .tab-content { display: none; padding: 20px; max-width: 1000px; margin: auto; }
+    body { padding-top: 60px; }
+    .tab-content { display: none; padding: 16px; max-width: 1000px; margin: auto; }
     .active { display: block; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); grid-gap: 10px; padding: 20px; }
-    .gallery img { width: 100%; height: auto; border-radius: 8px; }
-    h2 { color: #0a9396; }
-    ul { list-style-type: none; padding: 0; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px; padding: 10px; }
+    .gallery img { width: 100%; height: auto; border-radius: 8px; cursor: pointer; }
+    h2 { color: #0a9396; font-size: 6vw; }
+    h3 { margin-top: 20px; color: #005f73; font-size: 5vw; }
+    ul { list-style-type: none; padding: 0; font-size: 4vw; }
     ul li { margin-bottom: 6px; }
-    footer { background: #005f73; color: white; text-align: center; padding: 20px; margin-top: 20px; }
+    p, a { font-size: 4vw; }
+    iframe { width: 100%; height: 300px; border:0; border-radius:8px; }
+    footer { background: #005f73; color: white; text-align: center; padding: 20px; margin-top: 20px; position: relative; font-size: 3.5vw; }
+    footer .maintained { position: absolute; right: 10px; bottom: 10px; font-size: 3vw; }
+
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+    .lightbox img { max-width: 90%; max-height: 80%; display: block; margin: 40px auto; border-radius: 8px; }
+    .lightbox .close, .lightbox .prev, .lightbox .next {
+      position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2em; cursor: pointer; padding: 10px;
+    }
+    .lightbox .close { top: 20px; right: 30px; transform: none; font-size: 3em; }
+    .lightbox .prev { left: 20px; }
+    .lightbox .next { right: 20px; }
   </style>
   <script>
     function openTab(evt, tabName) {
@@ -41,6 +56,63 @@
     }
     window.onload = function(){
       document.getElementsByClassName("tablink")[0].click();
+
+      const images = document.querySelectorAll('.gallery img');
+      const lightbox = document.createElement('div');
+      lightbox.classList.add('lightbox');
+      lightbox.innerHTML = '<span class="close">&times;</span><span class="prev">&#10094;</span><img><span class="next">&#10095;</span>';
+      document.body.appendChild(lightbox);
+
+      const lightboxImg = lightbox.querySelector('img');
+      const closeBtn = lightbox.querySelector('.close');
+      const prevBtn = lightbox.querySelector('.prev');
+      const nextBtn = lightbox.querySelector('.next');
+      let currentIndex = 0;
+      const allImages = Array.from(images);
+
+      function showImage(index) {
+        lightbox.style.display = 'block';
+        lightboxImg.src = allImages[index].src;
+        currentIndex = index;
+      }
+
+      images.forEach((img, index) => {
+        img.addEventListener('click', () => showImage(index));
+      });
+
+      closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+      });
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        showImage(currentIndex);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        showImage(currentIndex);
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'block') {
+          if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+            showImage(currentIndex);
+          } else if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % allImages.length;
+            showImage(currentIndex);
+          } else if (e.key === 'Escape') {
+            lightbox.style.display = 'none';
+          }
+        }
+      });
     }
   </script>
 </head>
@@ -49,7 +121,7 @@
   <header>
     <img src="images/backyard1.jpg" alt="Villa Backyard">
     <h1>Lakeside Villa in Port Colborne</h1>
-    <p>15 guests • 5 bedrooms • 3.5 bathrooms • Waterfront on Lake Erie</p>
+    <p>5 bedrooms • 3.5 bathrooms • Waterfront on Lake Erie</p>
   </header>
 
   <nav>
@@ -75,7 +147,7 @@
     </div>
     <h3>Location</h3>
     <p>935 Lakeshore Road East, Port Colborne, Ontario</p>
-    <iframe src="https://www.google.com/maps?q=935+Lakeshore+Road+East,+Port+Colborne,+Ontario&output=embed" width="100%" height="400" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps?q=935+Lakeshore+Road+East,+Port+Colborne,+Ontario&output=embed" allowfullscreen="" loading="lazy"></iframe>
   </div>
 
   <div id="amenities" class="tab-content">
@@ -83,13 +155,16 @@
     <h3>Amenities</h3>
     <ul>
       <li>Sleeps 15</li>
-      <li>5 Bedrooms: 4 single beds, 5 double beds, 1 queen bed</li>
-      <li>3.5 Bathrooms</li>
-      <li>Pets not allowed, smoking not allowed</li>
-      <li>Fireplace, Wi-Fi, Internet</li>
+      <li>Bedrooms: 5 with 1 King Bed, 3 Queen beds, 2 Double beds, 3 single bunk beds & 1 single bed</li>
+      <li>Bathrooms: 3.5 with Jacuzzi tub</li>
+      <li>Fireplace</li>
+      <li>Internet: High speed Wi-Fi/Ethernet</li>
       <li>Full kitchen: dishwasher, microwave, coffee maker, cutlery, stove, oven, refrigerator etc.</li>
-      <li>Entertainment: billiards room, ping-pong, foosball, dart board, board games, Blu-ray/DVD, TV, stereo</li>
-      <li>Outdoor: private beach, gazebo, BBQ, fire pit, life jackets, beachfront tennis court, in-ground pool</li>
+      <li>Laundry: Available in unit</li>
+      <li>Entertainment: Billiards room, Table Tennis (Ping Pong), Foosball, Dart board, board games, Blu-ray/DVD, TV, stereo</li>
+      <li>Outdoor: Private Beach, Tennis Court, Pool (Open May to September), Gazebo, BBQ Grill, Firepit</li>
+      <li>Pets not allowed (Small pet may be considered)</li>
+      <li>Smoking not allowed</li>
     </ul>
     <h3>Nearby Activities</h3>
     <p>
@@ -127,14 +202,24 @@
 
   <div id="gallery" class="tab-content">
     <h2>Gallery</h2>
+    
+    <h3>Outdoors</h3>
     <div class="gallery">
       <img src="images/backyard1.jpg" alt="Villa Backyard">
       <img src="images/backyard2.jpg" alt="Backyard View">
       <img src="images/front.jpg" alt="Front of the House">
-      <img src="images/dinning.jpg" alt="Dining Room">
       <img src="images/porch.jpg" alt="Porch Area">
+    </div>
+
+    <h3>Kitchen & Dining</h3>
+    <div class="gallery">
+      <img src="images/dinning.jpg" alt="Dining Room">
       <img src="images/kitchen1.jpg" alt="Kitchen">
       <img src="images/kitchen3.jpg" alt="Kitchen Angle">
+    </div>
+
+    <h3>Bedrooms & Bathrooms</h3>
+    <div class="gallery">
       <img src="images/livingroom1.jpg" alt="Living Room">
       <img src="images/MasterbedA.jpg" alt="Master Bedroom A">
       <img src="images/MasterbedB.jpg" alt="Master Bedroom B">
@@ -144,6 +229,7 @@
       <img src="images/Bedroom4.jpg" alt="Bedroom 4">
       <img src="images/Bedroom5.jpg" alt="Bedroom 5">
     </div>
+
   </div>
 
   <div id="contact" class="tab-content">
@@ -160,6 +246,7 @@
 
   <footer>
     <p>&copy; 2025 Lakeside Villa in Port Colborne</p>
+    <div class="maintained">Maintained by <a href="https://mytekspace.com" target="_blank" style="color:white;">myTekSpace.com</a></div>
   </footer>
 
 </body>
