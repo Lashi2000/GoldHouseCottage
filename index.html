@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lakeside Villa in Port Colborne</title>
+  <title>Lakeside Villa in Port Colbourne</title>
   <link rel="stylesheet" href="assets/styles.css">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; font-size: 16px; }
     header { position: relative; text-align: center; color: white; }
     header img { width:100%; height:auto; display:block; }
-    header h1 { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 8px; }
-    header p { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.5); padding: 6px 12px; border-radius: 8px; font-size: 1em; max-width: 90%; }
-    nav { background: #0a9396; display: flex; justify-content: space-around; white-space: nowrap; position: fixed; top: 0; width: 100%; z-index: 1000; }
-    nav a { flex: 1; text-align: center; color: white; padding: 12px; text-decoration: none; font-size: 1em; overflow: hidden; text-overflow: ellipsis; }
+    header h1 { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5em; color: white; background: transparent; padding: 10px 20px; border-radius: 8px; }
+    header p { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: transparent; padding: 6px 12px; border-radius: 8px; font-size: 1em; max-width: 90%; color: white; }
+    nav { background: #0a9396; display: flex; justify-content: space-evenly; white-space: nowrap; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    nav a { text-align: center; color: white; padding: 12px 8px; text-decoration: none; font-size: 1em; }
     nav a:hover { background: #94d2bd; color: black; }
     body { padding-top: 60px; }
     .tab-content { display: none; padding: 20px; max-width: 1000px; margin: auto; }
@@ -37,6 +37,17 @@
     .lightbox .close { top: 20px; right: 30px; transform: none; font-size: 2.5em; }
     .lightbox .prev { left: 20px; }
     .lightbox .next { right: 20px; }
+
+    /* Responsive header text */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8em; padding: 8px 15px; }
+      header p { font-size: 0.9em; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.4em; padding: 6px 10px; }
+      header p { font-size: 0.8em; }
+    }
   </style>
   <script>
     function openTab(evt, tabName) {
@@ -47,12 +58,12 @@
       }
       tablinks = document.getElementsByClassName("tablink");
       for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].style.background = "#0a9396";
+        tablinks[i].style.background = "transparent";
         tablinks[i].style.color = "white";
       }
       document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.style.background = "#94d2bd";
-      evt.currentTarget.style.color = "black";
+      evt.currentTarget.style.background = "transparent";
+      evt.currentTarget.style.color = "white";
     }
     window.onload = function(){
       document.getElementsByClassName("tablink")[0].click();
@@ -120,7 +131,7 @@
 
   <header>
     <img src="images/backyard1.jpg" alt="Villa Backyard">
-    <h1>Lakeside Villa in Port Colborne</h1>
+    <h1>Lakeside Villa<br>in Port Colbourne</h1>
     <p>5 bedrooms • 3.5 bathrooms • Waterfront on Lake Erie</p>
   </header>
 
@@ -135,7 +146,7 @@
   <div id="about" class="tab-content">
     <h2>About</h2>
     <p>
-      This beautiful lakeside villa in Port Colborne, located within 30 minutes from Niagara Falls, Ontario, is the perfect retreat for families, couples, or small groups to relax and enjoy your own private beach with panoramic views of Lake Erie and stunning sunsets.
+      This beautiful lakeside villa in Port Colbourne, located within 30 minutes from Niagara Falls, Ontario, is the perfect retreat for families, couples, or small groups to relax and enjoy your own private beach with panoramic views of Lake Erie and stunning sunsets.
       The 5-bedroom, 3.5-bathroom villa features a spacious layout, cozy furnishings, and a full kitchen—excellent for fishing and swimming in very clean water.
     </p>
     <p>
@@ -146,7 +157,7 @@
       <img src="images/front.jpg" alt="Front of the House">
     </div>
     <h3>Location</h3>
-    <p>935 Lakeshore Road East, Port Colborne, Ontario</p>
+    <p>935 Lakeshore Road East, Port Colbourne, Ontario</p>
     <iframe src="https://www.google.com/maps?q=935+Lakeshore+Road+East,+Port+Colborne,+Ontario&output=embed" allowfullscreen="" loading="lazy"></iframe>
   </div>
 
